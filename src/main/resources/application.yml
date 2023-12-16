@@ -1,1 +1,12 @@
-
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5433/rest_with_spring_boot_erudio
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: false
