@@ -1,14 +1,24 @@
 package dev.carlosezpereira.restwithspringbootandjavaerudio.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity //Declara que é uma classe relacionada a uma tabela no DB
+@Table(name = "person") //Define o nome da tabela no DB ao qual a classe irá representar
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Id //Define como primary key da tabela
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "first_name",nullable = false,length = 80) //Define a tabela que irá representar.
     private String firstName;
+    @Column(name = "last_name",nullable = false,length = 80)
     private String lastName;
+    @Column(nullable = false,length = 100)//Caso não seja definido o "name", assume-se que o nome da tabela é o mesmo do atributo
     private String address;
+    @Column(nullable = false,length = 6)
     private String gender;
 
     public Person(){}
