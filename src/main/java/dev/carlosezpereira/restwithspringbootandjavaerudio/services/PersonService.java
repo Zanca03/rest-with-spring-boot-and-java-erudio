@@ -40,8 +40,8 @@ public class PersonService {
         entity.setLastName(person.getLastName());
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
-
-        return person;
+        repository.save(entity);
+        return entity;
     }
     public void delete(Long id){
         logger.info("Deleting a person!");
