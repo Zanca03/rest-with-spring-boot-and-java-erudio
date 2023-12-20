@@ -1,6 +1,7 @@
 package dev.carlosezpereira.restwithspringbootandjavaerudio.controller;
 
 import dev.carlosezpereira.restwithspringbootandjavaerudio.data.vo.v1.PersonVO;
+import dev.carlosezpereira.restwithspringbootandjavaerudio.data.vo.v2.PersonVOv2;
 import dev.carlosezpereira.restwithspringbootandjavaerudio.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -31,6 +32,12 @@ public class PersonController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public PersonVO  create(@RequestBody PersonVO person) {
         return service.create(person);
+    }
+
+    @PostMapping(value = "/v2",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonVOv2  createV2(@RequestBody PersonVOv2 person) {
+        return service.createV2(person);
     }
 
     @PatchMapping(value = "/",
