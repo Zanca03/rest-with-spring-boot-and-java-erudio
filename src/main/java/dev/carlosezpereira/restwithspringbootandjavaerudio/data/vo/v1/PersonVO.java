@@ -1,14 +1,22 @@
 package dev.carlosezpereira.restwithspringbootandjavaerudio.data.vo.v1;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@JsonPropertyOrder({"id","gender","address","firstName","lastName"}) //Define a ordem de saída do Json
 public class PersonVO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    @JsonProperty("first_name") //Define o nome da key no Json
     private String firstName;
+    @JsonProperty("last_name") //Define o nome da key no Json
     private String lastName;
     private String address;
+   // @JsonIgnore //Ignora atributo no Json retornado - Comentado por dar erro com o Dozer
     private String gender;
 
     public PersonVO(){}
