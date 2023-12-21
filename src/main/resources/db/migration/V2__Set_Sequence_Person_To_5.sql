@@ -1,0 +1,1 @@
+ALTER SEQUENCE person_id_seq RESTART WITH 5;
