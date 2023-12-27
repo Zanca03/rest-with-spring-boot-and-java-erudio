@@ -17,37 +17,37 @@ public class PersonController {
     private PersonService service;
 
     @GetMapping(value = "/{id}",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public PersonVO  findById(@PathVariable(value = "id") Long id) {
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public PersonVO findById(@PathVariable(value = "id") Long id) {
         return service.findById(id);
     }
 
     @GetMapping(value = "/all",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PersonVO > findAll() {
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public List<PersonVO> findAll() {
         return service.findAll();
     }
 
     @PostMapping(value = "/",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public PersonVO  create(@RequestBody PersonVO person) {
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public PersonVO create(@RequestBody PersonVO person) {
         return service.create(person);
     }
 
     @PostMapping(value = "/v2",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public PersonVOv2  createV2(@RequestBody PersonVOv2 person) {
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public PersonVOv2 createV2(@RequestBody PersonVOv2 person) {
         return service.createV2(person);
     }
 
     @PatchMapping(value = "/",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public PersonVO  updateOnePerson(@RequestBody PersonVO person) {
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public PersonVO updateOnePerson(@RequestBody PersonVO person) {
         return service.updateOnePerson(person);
     }
-    @DeleteMapping(value = "/{id}",
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public void delete(@PathVariable(value = "id") Long id){
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable(value = "id") Long id) {
         service.delete(id);
     }
 }
